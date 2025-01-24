@@ -1,7 +1,10 @@
 import Link from "next/link";
+import getUser from "../lib/getUser";
+import Login from "../login/page";
+import LogOut from "../logout/page";
 
-export default function Navbar() {
-  const user = "";
+export default async function Navbar() {
+  const user = await getUser();
   const links = (
     <>
       <li>
@@ -47,13 +50,18 @@ export default function Navbar() {
         </div>
         <div className="navbar-end">
           {user ? (
-            <Link href="/logout" className="btn btn-error">
-              LogOut
-            </Link>
+            <>
+              <div className="mr-2">
+                <img
+                  src={user?.picture}
+                  alt="user image"
+                  className="w-10 h-10 object-cover rounded-full border border-gray-300 p-0.5"
+                ></img>
+              </div>
+              <LogOut />
+            </>
           ) : (
-            <Link href="/login" className="btn btn-primary">
-              Login
-            </Link>
+            <Login />
           )}
         </div>
       </div>

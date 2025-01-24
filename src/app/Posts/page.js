@@ -20,12 +20,9 @@ export default async function Posts() {
               <tr key={post.id}>
                 <th>{post.id}</th>
                 <td>{post.title}</td>
-                <Link
-                  className="btn btn-sm btn-primary"
-                  href={`/Posts/${post.id}`}
-                >
-                  See Details
-                </Link>
+                <td className="btn btn-sm btn-primary">
+                  <Link href={`/Posts/${post.id}`}>See Details</Link>
+                </td>
               </tr>
             ))}
           </tbody>
