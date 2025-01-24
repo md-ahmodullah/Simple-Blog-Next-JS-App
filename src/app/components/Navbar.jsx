@@ -51,7 +51,7 @@ export default async function Navbar() {
         <div className="navbar-end">
           {user ? (
             <>
-              <div className="mr-2">
+              <div className="mr-3">
                 <img
                   src={user?.picture}
                   alt="user image"
